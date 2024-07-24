@@ -2,26 +2,37 @@
 
 using namespace std;
 //introduction to pointers ...
+
+void printNumber(int*numberPtr) {
+
+cout<<*numberPtr<<endl;
+
+}
+
+void printletter(char*charPtr) {
+
+    cout<<charPtr<<endl;
+
+}
+
+void print(void*ptr,char type) {
+
+    switch (type) {
+
+        case 'i':cout<<*((int*)ptr)<<endl;break;
+        case 'c':cout<<*((char*)ptr)<<endl;break;
+    }
+}
+
 int main() {
 
-int n=5;
-    cout<<&n<<endl;
-int * ptr= &n;
-    cout<<ptr<<endl;
-    cout<<*ptr<<endl;
-    *ptr=10;
-    cout<<*ptr<<endl;
-cout<<n<<endl;
+int number=5;
+    char letter='a';
+    //printNumber(&number);
+    //printletter(&letter);
 
-
-
-    int v;
-    int * ptr2=&v;
-    *ptr2=7;
-    cout<<"v="<<v<<endl;
-
-
-
+print(&number,'i');
+    print(&letter,'c');
 
     return 0;
 }
