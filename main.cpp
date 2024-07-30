@@ -3,47 +3,33 @@
 using namespace std;
 //introduction to pointers ...
 
-int getMin(int numbers[],int size) {
 
-int min=numbers[0];
-    for(int i=1;i<size;i++) {
-        if(numbers[i]<min)
-            min=numbers[i];
-    }
-    return min;
-}
-int getMax(int numbers[],int size) {
-
-    int max=numbers[0];
-    for(int i=1;i<size;i++) {
-        if(numbers[i]>max)
-            max=numbers[i];
-    }
-    return max;
-}
-
-void getMinAndMax(int numbers[],int size,int*min,int*max) {
-
-    for(int i=1;i<size;i++) {
-        if(numbers[i]>*max)
-            *max=numbers[i];
-        if(numbers[i]<*min)
-            *min=numbers[i];
-    }
-
-}
 
 int main() {
 
 
-    int numbers[5]={5,4,-2,29,6};
-    //cout<<"Min is: "<<getMin(numbers,5)<<endl;
-    //cout<<"Max is: "<<getMax(numbers,5)<<endl;
+    int size;
+    cout<<"Size: ";
+    cin>>size;
+    //int myArray[size];
 
-    int min=numbers[0];
-    int max=numbers[0];
-    getMinAndMax(numbers,5,&min,&max);
-    cout<<"min is "<<min<<endl<<"max is "<<max<<endl;
+    int * myArray = new int[size];
+
+for(int i=0;i<size;i++) {
+
+    cout<<"Array ["<<i<<"]";
+    cin>>myArray[i];
+
+}
+
+    for(int i=0;i<size;i++) {
+
+        //cout<<myArray[i]<<"  ";
+            cout<<*(myArray+i)<<"  ";
+    }
+
+delete[]myArray;
+myArray = NULL;
     return 0;
 }
 
