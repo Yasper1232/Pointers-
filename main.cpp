@@ -3,27 +3,47 @@
 using namespace std;
 //introduction to pointers ...
 
+int getMin(int numbers[],int size) {
+
+int min=numbers[0];
+    for(int i=1;i<size;i++) {
+        if(numbers[i]<min)
+            min=numbers[i];
+    }
+    return min;
+}
+int getMax(int numbers[],int size) {
+
+    int max=numbers[0];
+    for(int i=1;i<size;i++) {
+        if(numbers[i]>max)
+            max=numbers[i];
+    }
+    return max;
+}
+
+void getMinAndMax(int numbers[],int size,int*min,int*max) {
+
+    for(int i=1;i<size;i++) {
+        if(numbers[i]>*max)
+            *max=numbers[i];
+        if(numbers[i]<*min)
+            *min=numbers[i];
+    }
+
+}
 
 int main() {
 
-int luckyNumbers[5];
 
-    for(int i=0;i<=4;i++) {
+    int numbers[5]={5,4,-2,29,6};
+    //cout<<"Min is: "<<getMin(numbers,5)<<endl;
+    //cout<<"Max is: "<<getMax(numbers,5)<<endl;
 
-        cout<<" Number: ";
-        cin>>luckyNumbers[i];
-
-    }
-
-    for(int i=0;i<=5;i++) {
-
-        cout<<"  ";
-        cout<<*(luckyNumbers+i)<<"  ";
-
-    }
-
-
-
+    int min=numbers[0];
+    int max=numbers[0];
+    getMinAndMax(numbers,5,&min,&max);
+    cout<<"min is "<<min<<endl<<"max is "<<max<<endl;
     return 0;
 }
 
